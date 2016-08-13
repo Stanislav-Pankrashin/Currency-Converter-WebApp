@@ -9,6 +9,16 @@ body {
 
 }
 
+body #websiteName{
+    color: white;
+    text-align: center;
+}
+
+#header{
+    color: white;
+    text-align: center;
+}
+
 .btn.outline{
     background: none;
     padding: 12px 22px;
@@ -17,4 +27,10 @@ body {
 
 .btn.sharp{
     border-radius: 0;
+}
+
+.grid{
+    height: 11.1111111vw;
+    width: 11.1111111vw;
+
 }
