@@ -1,7 +1,5 @@
-@import "compass/css3";
-
 body {
-    background: url("http://theme.dima-lab.com/okab/images/landing-page-iphone/blurred-home-bg.jpg") no-repeat center center fixed; 
+    background: url("http://wallpapercave.com/wp/Hvtxo6m.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -9,6 +7,10 @@ body {
 
 }
 
+.central-group{
+    margin-top: 100px;
+
+}
 body #websiteName{
     color: white;
     text-align: center;
@@ -20,17 +22,36 @@ body #websiteName{
 }
 
 .btn.outline{
-    background: none;
+    background: #1a1aff;
     padding: 12px 22px;
     color: white;
+    text-align: center;
+    font-size: 22px;
+    font-family: Tahoma;
 }
 
-.btn.sharp{
-    border-radius: 0;
+p{
+    font-family: Tahoma;
 }
 
 .grid{
-    height: 8.3333vw;
-    width: 8.33333vw;
+    height: 150px;
+    width: 150px;
+    padding: 15px;
+    border-radius: 50px;
 
+}
+
+.spaced-grid{
+    padding: 15px;
+}
+
+.info-button{
+    border-radius: 15px;
+    height: 50px;
+    width: 50px;
+}
+
+.info-row{
+    margin-top: 50px;
 }
