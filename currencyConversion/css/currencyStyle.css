@@ -1,3 +1,9 @@
 .fixer-text{
     padding: 30px;
 }
+
+div#calculateBtn{
+    text-align: center;
+    height: 60px;
+    width: 160px;
+}
