@@ -1,41 +1,43 @@
 var currencyFrom;
 var currencyTo;
 var currencyAmount;
-var fixerJsonReturn;
 var giveError = false;
 var currencyFromValue;
 var currencyToValue;
 var currencyRatio;
 var finalResult;
 function convertCurrency() {
-    currencyFrom = document.getElementById(currencyFrom).value;
-    currencyTo = document.getElementById(currencyTo).value;
-    currencyAmount = document.getElementById(currencyAmount).value;
+    currencyFrom = $("#currencyFrom").val();
+    currencyTo = $("#currencyTo").val();
+    currencyAmount = $("#currencyAmount").val();
     getRates();
 }
 function getRates() {
     $.ajax({
-        url: "http://api.fixer.io/latest?symbols={0},{1}".replace("{0}", currencyFrom).replace("{1}", currencyTo),
-        type: "GET",
-        processData: false
-    })
+        "async": true,
+        "crossDomain": true,
+        "url": "http://api.fixer.io/latest?symbols=USD%2CNZD",
+        "method": "GET",
+        "headers": {
+            "cache-control": "no-cache",
+            "postman-token": "22d4c045-ec74-c40d-e221-c06372e3817c"
+        } })
         .done(function (data) {
-        fixerJsonReturn = data;
+        calculate(data);
     })
         .fail(function () {
         giveError = true;
     });
-    calculate();
 }
-function calculate() {
+function calculate(data) {
     if (!giveError) {
-        currencyFromValue = Number(fixerJsonReturn[2].currencyFrom);
-        currencyToValue = Number(fixerJsonReturn[2].currencyTo);
+        var theData = data;
+        currencyFromValue = Number(data.rates.currencyFrom);
+        currencyToValue = Number(data.rates.currencyTo);
         currencyRatio = currencyToValue / currencyFromValue;
         finalResult = Number(currencyAmount) * currencyRatio;
     }
 }
 function returnResult() {
-    var displayElement = document.getElementById(resultBtn);
-    displayElement.innerHTML = String(finalResult);
+    $("#resultBtn").text = finalResult;
 }
