@@ -1,16 +1,80 @@
-var currencyFrom: string;
-var currencyTo: string;
-var currencyAmount: string;
+class CurrencyConverter {
+    currencyFrom: string;
+    currencyTo: string;
+    currencyAmount: string;
 
-var giveError: boolean = false;
-var currencyFromValue: number;
-var currencyToValue: number;
-var currencyRatio: number;
+    giveError: boolean = false;
+    jsonData : JSON;
+    currencyFromValue: number;
+    currencyToValue: number;
+    currencyRatio: number;
 
-var finalResult: number;
+    finalResult: number;
+
+    CurrencyConverter(){
+
+    }
+
+    setCurrencies(currencyFrom : string, currencyTo : string): void {
+        this.currencyFrom = currencyFrom;
+        this.currencyTo = currencyTo;
+
+    }
+
+    setAmount(amount: string): void {
+        this.currencyAmount = amount;
+
+    }
+
+    getRates(): any {
+        $.ajax({
+            "async": true,
+            "crossDomain": true,
+            "url": "http://api.fixer.io/latest?symbols=USD%2CNZD",
+            "method": "GET"
+            )
+            .done(function (data: JSON): JSON {
+                return data;
+            })
+            .fail(function (): void {
+                this.giveError = true;
+            })
+    }
+
+    calculate(data : JSON): void {
+        if (!this.giveError) {
+            this.currencyFromValue = Number(data[0].this.currencyFrom);
+            this.currencyToValue = Number(data[1].this.currencyTo);
+            this.currencyRatio = this.currencyToValue / this.currencyFromValue;
+            this.finalResult = Number(this.currencyAmount) * this.currencyRatio;
+        }
+
+    }
+    returnResult(): void {
+        $("#resultBtn").text = this.finalResult;
+
+    }
 
 
-function convertCurrency(): void {
+}
+
+function convertCurrency() : void{
+    var currencyFrom : string = $("#currencyFrom").val();
+    var currencyTo : string = $("#currencyTo").val();
+    var currencyAmount : string = $("#currencyAmount").val();
+
+    var currencyConverter = new CurrencyConverter();
+    currencyConverter.setCurrencies(currencyFrom, currencyTo);
+    currencyConverter.setAmount(currencyAmount);
+
+    var returnedData : JSON = currencyConverter.getRates();
+    currencyConverter.calculate(returnedData);
+    currencyConverter.returnResult();
+}
+
+
+
+/*function convertCurrency(): void {
     currencyFrom = $("#currencyFrom").val();
     currencyTo = $("#currencyTo").val();
     currencyAmount = $("#currencyAmount").val();
@@ -39,8 +103,8 @@ function getRates(): void {
 function calculate(data: JSON): void {
     if (!giveError) {
         var theData: JSON = data;
-        currencyFromValue = Number(data.rates.currencyFrom);
-        currencyToValue = Number(data.rates.currencyTo);
+        currencyFromValue = Number(theData.rates.currencyFrom);
+        currencyToValue = Number(theData.rates.currencyTo);
         currencyRatio = currencyToValue / currencyFromValue;
         finalResult = Number(currencyAmount) * currencyRatio;
     }
@@ -50,4 +114,4 @@ function calculate(data: JSON): void {
 function returnResult(): void {
     $("#resultBtn").text = finalResult;
 
-}
+}*/
