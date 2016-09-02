@@ -7,3 +7,7 @@ div#calculateBtn{
     height: 60px;
     width: 160px;
 }
+
+div#result{
+    background : white;
+}
