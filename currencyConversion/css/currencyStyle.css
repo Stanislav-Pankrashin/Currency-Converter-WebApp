@@ -1,3 +1,5 @@
+
+
 .fixer-text{
     padding: 30px;
 }
@@ -10,4 +12,9 @@ div#calculateBtn{
 
 div#result{
     background : white;
+}
+
+div#resultBtn{
+    text-align: center;
+    height: 60px;
 }

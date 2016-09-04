@@ -8,12 +8,12 @@
     <link rel="stylesheet" type="text/css" href="css/currencyStyle.css">
     <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <!--Custom CSS-->
-    <script src="./node_modules/sweetalert/dist/sweetalert.min.js"></script>
-    <link rel="stylesheet" href="./node_modules/sweetalert/dist/sweetalert.css">
+    <script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="../node_modules/sweetalert/dist/sweetalert.css">
 </head>
 
 <body>
-    <div class="central-group">
+    <div class="central-group container-fluid">
         <h1 id="websiteName">
             Currency Conversion
         </h1>
@@ -54,12 +54,22 @@
                 </div>
             </div>
             <div class="col-md-1">
-                <div class="btn btn-default btn-lg outline btn-lg text-center" id="resultBtn">
-                    <span></span>
+                <div class="btn btn-default btn-lg outline btn-lg text-center" id="calculateBtn" onclick = "showCurrencies()">
+                    <span>List of Currencies</span>
                 </div>
             </div>
             <div class="col-md-5"></div>
 
+        </div>
+        <div class = "row">
+            <div class = "col-md-5"></div>
+            <div class = "col-md-2">
+                <div class="btn btn-default btn-lg outline btn-lg text-center" id="resultBtn">
+                    <span></span>
+                </div>
+            </div>
+            <div class = "col-md-5"></div>
+            
         </div>
 
     </div>
