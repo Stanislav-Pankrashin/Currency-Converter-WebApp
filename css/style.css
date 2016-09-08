@@ -7,6 +7,10 @@ body {
 
 }
 
+.inline-list li{
+    display: inline;
+}
+
 .central-group{
     margin-top: 100px;
 
