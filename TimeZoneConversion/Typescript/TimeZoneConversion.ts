@@ -19,15 +19,17 @@ class TimeZoneConverter {
     }
 
     setOriginTime(originTime: string){
-        this.originTime = origintime;
+        this.originTime = originTime;
     }
 
     retrieveInformation(){
-        //man method where api calls will be chained
+        //main method where api calls will be chained
+        this.getCoordinatesCityFrom();
+
     }
 
     //The next two methods can be executed concurrently, but shouldnt be due to limitations with calculation and multithreading. will need to chain all ajax calls
-    getCoordinatesCityFrom(callback) {
+    getCoordinatesCityFrom() {
         var settings = {
             "async": true,
             "crossDomain": true,
@@ -40,12 +42,17 @@ class TimeZoneConverter {
         }
 
         $.ajax(settings).done(function (response) {
-            //todo
             //will set lat and long variables, and then call next ajax call in the chain
+            this.cityFromLat = response[1].geometry.location.lat;
+            this.cityFromLong = response[1].geometry.location.lng;
+
+
+
+            this.getcoordinatesCityTo();
         });
     }
 
-    getcoordinatesCityTo(callback) {
+    getcoordinatesCityTo() {
         var settings = {
             "async": true,
             "crossDomain": true,
@@ -58,20 +65,21 @@ class TimeZoneConverter {
         }
 
         $.ajax(settings).done(function (response) {
-            //todo
             //will set lat and long variables, and then call next ajax call in the chain
+
+            this.getTimeZoneCityFrom();
         });
     }
     //these methods cannot be executed concurrently due to calculation coming immediately after, will need to chain two requests
-    getTimeZoneCityFrom(callback){
+    getTimeZoneCityFrom(){
         //todo, need to consult api sheet for method
     }
 
-    getTimeZoneCityTo(callback){
+    getTimeZoneCityTo(){
         //todo, need to consult api sheet for method
     }
 
-    convertTime(callback){
+    convertTime(){
         //todo, will convert time based on information recieved from previous two ajax calls, can use another ajax call here to get offset
         //then can do quick calculation and update the dom
     }
