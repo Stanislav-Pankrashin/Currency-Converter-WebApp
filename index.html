@@ -6,11 +6,16 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<!--Custom CSS-->
-	<script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
-	<link rel="stylesheet" href="node_modules/sweetalert/dist/sweetalert.css">
+	<script src="./node_modules/sweetalert/dist/sweetalert.min.js"></script>
+	<link rel="stylesheet" href="./node_modules/sweetalert/dist/sweetalert.css">
+	<link rel="stylesheet" href="./bower_components/fakeLoader/fakeLoader.css">
+	<script src="./bower_components/fakeLoader/fakeLoader.min.js"></script>
 </head>
 
 <body>
+	<div class="fakeloader" style="position: fixed; width: 100%; height: 100%; top: 0px; left: 0px; z-index: 999; display: none; background-color: rgb(52, 152, 219);">
+		<div class="fl spinner4" style="position: absolute; left: 363px; top: 474.5px;"></div>
+	</div>
 	<div class="container">
 		<div class="row info-row">
 			<div class="col-md-11"></div>
@@ -60,6 +65,10 @@
 	<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<!--Custom Script-->
 	<script src="./js/basic_old.js"></script>
+	<script src="./bower_components/fakeLoader/fakeLoader.min.js"></script>
+	<script type="text/javascript">
+		$("#fakeloader").fakeLoader();
+	</script>
 </body>
 
 </html>

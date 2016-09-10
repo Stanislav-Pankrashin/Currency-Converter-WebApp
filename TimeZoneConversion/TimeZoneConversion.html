@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Placeholder</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/currencyStyle.css">
+    <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!--Custom CSS-->
+    <script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="../node_modules/sweetalert/dist/sweetalert.css">
+</head>
+
+<body>
+    <div class="central-group container-fluid">
+        <h1 id="websiteName">
+            Timezone Conversion
+        </h1>
+        <h2 id="header">
+            PLease enter the city names, and the time to convert from
+        </h2>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <ul class="inline-list">
+                    <li>
+                        <div class="input-group fixer-text">
+                            <span class="input-group-addon fixer-text">City From</span>
+                            <input type="text" class="form-control" placeholder="Eg: Auckland, Moscow, New York" aria-describedby="basic-addon1" id="cityfrom">
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="input-group fixer-text">
+                            <span class="input-group-addon fixer-text">City Too</span>
+                            <input type="text" class="form-control" placeholder="Eg: Auckland, Moscow, New York" aria-describedby="basic-addon1" id="cityto">
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-5"></div>
+            <div class="col-md-2">
+                <div class="input-group fixer-text">
+                    <span class="input-group-addon">Amount</span>
+                    <input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1" id="origintime">
+                </div>
+            </div>
+            <div class="col-md-5"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <ul class="inline-list">
+                    <li>
+                        <div class="btn btn-default btn-lg outline btn-lg text-center" id="calculateBtn" onclick="convertTime()">
+                            <span>Calculate</span>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="btn btn-default btn-lg outline btn-lg text-center" id="calculateBtn" onclick="showCurrencies()">
+                            <span>List of Currencies</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4"></div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-5"></div>
+            <div class="col-md-2">
+                <div class="btn btn-default btn-lg outline btn-lg text-center" id="resultBtn">
+                    <span></span>
+                </div>
+            </div>
+            <div class="col-md-5"></div>
+
+        </div>
+
+    </div>
+
+    <!--jQuery Script-->
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <!--Bootstrap Script-->
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!--Custom Script-->
+    <script src="javascript/currencyConversion.js"></script>
+</body>
+
+</html>
