@@ -45,9 +45,6 @@ class TimeZoneConverter {
             //will set lat and long variables, and then call next ajax call in the chain
             this.cityFromLat = response[1].geometry.location.lat;
             this.cityFromLong = response[1].geometry.location.lng;
-
-
-
             this.getcoordinatesCityTo();
         });
     }
@@ -66,6 +63,8 @@ class TimeZoneConverter {
 
         $.ajax(settings).done(function (response) {
             //will set lat and long variables, and then call next ajax call in the chain
+            this.cityToLat = response[1].geometry.location.lat;
+            this.cityToLong = response[1].geometry.location.lng;
 
             this.getTimeZoneCityFrom();
         });
