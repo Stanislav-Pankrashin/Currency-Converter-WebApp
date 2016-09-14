@@ -40,6 +40,7 @@ class TimeZoneConverter {
             "url": "https://maps.googleapis.com/maps/api/place/textsearch/json?query={0}&key=AIzaSyB80t43vPlBiZptDZkAYPOTXAO9YLJsmng".replace("{0}", this.cityFrom),
             "method": "GET",
             "headers": {
+                "access-control-allow-origin": "https://knickknacks.azurewebsites.net",
                 "cache-control": "no-cache",
                 "postman-token": "c4631188-a0f2-59e4-6cda-bc789b657fca"
             }
@@ -61,6 +62,7 @@ class TimeZoneConverter {
             "url": "https://maps.googleapis.com/maps/api/place/textsearch/json?query={0}&key=AIzaSyB80t43vPlBiZptDZkAYPOTXAO9YLJsmng".replace("{0}", this.cityTo),
             "method": "GET",
             "headers": {
+                "access-control-allow-origin": "https://knickknacks.azurewebsites.net",
                 "cache-control": "no-cache",
                 "postman-token": "c4631188-a0f2-59e4-6cda-bc789b657fca"
             }
