@@ -18,6 +18,7 @@ var TimeZoneConverter = (function () {
         var settings = {
             "async": true,
             "crossDomain": true,
+            "datatype": "jsonp",
             "url": "https://maps.googleapis.com/maps/api/place/textsearch/json?query={0}&key=AIzaSyB80t43vPlBiZptDZkAYPOTXAO9YLJsmng".replace("{0}", this.cityFrom),
             "method": "GET",
             "headers": {
@@ -36,6 +37,7 @@ var TimeZoneConverter = (function () {
         var settings = {
             "async": true,
             "crossDomain": true,
+            "datatype": "jsonp",
             "url": "https://maps.googleapis.com/maps/api/place/textsearch/json?query={0}&key=AIzaSyB80t43vPlBiZptDZkAYPOTXAO9YLJsmng".replace("{0}", this.cityTo),
             "method": "GET",
             "headers": {
