@@ -1,20 +1,28 @@
 body {
-    background: url("http://wallpapercave.com/wp/Hvtxo6m.jpg") no-repeat center center fixed;
+    background-color: #2ecc71;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 
 }
+.infoHeader{
+    height: 60px;
+    background: #3333ff;
+}
 
 .inline-list li{
     display: inline;
 }
 
+.countryEntrance{
+    height: 50px;
+}
+
 .central-group{
     margin-top: 100px;
-
 }
+
 body #websiteName{
     color: white;
     text-align: center;
@@ -26,28 +34,26 @@ body #websiteName{
 }
 
 .btn.outline{
-    background: #1a1aff;
+    background: #d6f5e3;
+    float: none;
     padding: 12px 22px;
-    color: white;
+    color: #4d4d4d;
     text-align: center;
     font-size: 22px;
     font-family: Tahoma;
 }
 
-p{
+.btn.outline:hover{
+    background: #ffffff;
+}
+
+.resultsPanel{
+    background: #d6f5e3;
     font-family: Tahoma;
 }
 
-.grid{
-    height: 150px;
-    width: 150px;
-    padding: 15px;
-    border-radius: 50px;
-
-}
-
-.spaced-grid{
-    padding: 15px;
+p{
+    font-family: Tahoma;
 }
 
 .info-button{
@@ -58,4 +64,12 @@ p{
 
 .info-row{
     margin-top: 50px;
+}
+
+.infoBtn{
+    margin-top: 10px;
+    height: 40px;
+    width: 80px;
+    font-size: 18px;
+    font-family: Tahoma;
 }

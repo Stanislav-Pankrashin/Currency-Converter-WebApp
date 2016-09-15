@@ -129,3 +129,27 @@ function showCurrencies(): void {
         type: "info", 
         confirmButtonText: "Return" });
 }
+
+function showAuthor(): void{
+    swal({
+        title: "About the Author",
+        text: "Author: Stanislav Pankrashin\nA student at the University of Auckland who is studying computer science\n",
+        type: "info",
+        confirmButtonText: "Return"
+
+    });
+
+
+}
+
+function showInfo(): void{
+    swal({
+        title: "About the Website",
+        text: "Powered by Fixxer.io\nThis website was made for the purposes of the microsoft student accelorator\nit is not intended to be monetised or used for monetary gain\n",
+        type: "info",
+        confirmButtonText: "Return"
+
+    })
+
+    
+}

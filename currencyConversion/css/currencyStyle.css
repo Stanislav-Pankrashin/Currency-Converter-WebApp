@@ -6,7 +6,7 @@
 
 div#calculateBtn{
     text-align: center;
-    height: 60px;
+    height: 80px;
     width: 160px;
 }
 
@@ -18,3 +18,4 @@ div#resultBtn{
     text-align: center;
     height: 60px;
 }
+

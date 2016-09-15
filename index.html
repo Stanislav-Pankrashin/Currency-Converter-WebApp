@@ -1,64 +1,113 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
-	<title>Placeholder</title>
-	<link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<!--Custom CSS-->
-	<script src="./node_modules/sweetalert/dist/sweetalert.min.js"></script>
-	<link rel="stylesheet" href="./node_modules/sweetalert/dist/sweetalert.css">
-	<link rel="stylesheet" href="./css/fakeLoader.css">
+    <title>KnickKnacks Currency</title>
+    <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="currencyConversion/css/currencyStyle.css">
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="./node_modules/sweetalert/dist/sweetalert.css">
+    <link rel="stylesheet" href="./css/fakeLoader.css">
 </head>
 
-<body>
-	<div class="fakeloader"></div>
-	<div class="container">
-		<div class="row info-row">
-			<div class="col-md-11"></div>
-			<div class="col-md-1">
-				<div class="btn btn-default info-button outline text-center">
-					<p class="button-center-text"><span class="glyphicon glyphicon-modal-window"></p>
-					</div>
-				</div>
-			</div>
-			<div class = "central-group">
-				<h1 id="websiteName">
-					Knick Knacks
-				</h1>
-				<h2 id="header">
-					A few little tools to make your life easier
-				</h2>
-				<div class="row spaced-grid">
-					<div class="col-md-3"></div>
-					<div class="col-md-6">
-						<ul class = "inline-list">
-							<li>
-								<a class="btn btn-default btn-lg outline btn-lg text-center allign-right grid" role="button" href="currencyConversion/currencyConversion.html">
-						    		<span class="glyphicon glyphicon-euro"><br>Currency <br> Conversion
-								</a>
-							</li>
-							<li>
-								<a class="btn btn-default btn-lg outline btn-lg text-center grid" role="button" href="unitConversion/unitConversion.html">
-						    		<span class = "glyphicon glyphicon-sunglasses"><br>Unit <br> Conversion
-								</a>
-							</li>
-						</ul>
-						
-					</div>
+<body class="container-fluid">
+    <!---->
+    <div class="fakeloader"></div>
+    <div class="row infoHeader">
+        <div class="col-md-1 col-md-offset-3">
+            <div class="btn btn-default btn-md infoBtn center-block" onclick = "showAuthor()">
+                <span>author</span>
+            </div>
+        </div>
 
-					<div class="col-md-3"></div>
-				</div>
-		</div>
-	</div>
-	<!--jQuery Script-->
-	<!--<script src="./node_modules/jquery/dist/jquery.min.js"></script>
-	<!--Bootstrap Script-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
-	<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-	<!--Custom Script-->
-	<script src="./javascript/fakeLoader.min.js"></script>
-	<script type="text/javascript">
+
+        <div class="col-md-1 col-md-offset-4" onclick = "showInfo()">
+            <div class="btn btn-default btn-md infoBtn center-block">
+                <span>about</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="central-group">
+        <div id="infoArea">
+            <h1 id="websiteName">
+                Knick Knack Currency
+            </h1>
+            <h2 id="header">
+                Just a simple currency converter
+            </h2>
+        </div>
+        <div class="row">
+
+            <div class="col-md-6 col-md-offset-3">
+                <div class="input-group fixer-text input-group-lg">
+                    <span class="input-group-addon fixer-text">Currency From</span>
+                    <input type="text" class="form-control" placeholder="Eg: NZD, USD, AUD" aria-describedby="basic-addon1" id="currencyFrom">
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="input-group fixer-text input-group-lg">
+                        <span class="input-group-addon fixer-text">Currency To</span>
+                        <input type="text" class="form-control" placeholder="Eg: NZD, USD, AUD" aria-describedby="basic-addon1" id="currencyTo">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="input-group fixer-text input-group-md">
+                    <span class="input-group-addon">Amount</span>
+                    <input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1" id="currencyAmount">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-md-offset-5">
+                <div class="btn btn-default btn-lg outline btn-lg text-center centered center-block" id="calculateBtn" onclick="convertCurrency()">
+                    <span>Calculate <br> <span class = "glyphicon glyphicon-record"></span></span>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-md-offset-5">
+
+                <div class="btn btn-default btn-lg outline btn-lg text-center centered center-block" id="calculateBtn" onclick="showCurrencies()">
+                    <span>List of <br> Currencies</span>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-md-offset-5">
+                <div class="panel panel-default">
+                    <div class="panel-body resultsPanel" id="resultBtn">
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!--jQuery Script-->
+    <!--Bootstrap Script-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./javascript/fakeLoader.min.js"></script>
+    <!--Custom Script-->
+    <script src="./node_modules/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="currencyConversion/javascript/currencyConversion.js"></script>
+    <script type="text/javascript">
             $(document).ready(function(){
                 $(".fakeloader").fakeLoader({
                     timeToHide:3000,
