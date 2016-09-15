@@ -105,11 +105,12 @@ class CurrencyConverter {
     //updates the dom with the result
     returnResult(): void {
         var message: string;
-        message = "{0} {1} in {2} is {3}"
+        message = "{0} {1} in {2} is {3} at a rate of {4}"
             .replace("{0}", this.currencyAmount)
             .replace("{1}", this.currencyFrom)
             .replace("{2}", this.currencyTo)
-            .replace("{3}", this.finalResult);
+            .replace("{3}", this.finalResult)
+            .replace("{4}", String(this.currencyRatio.toFixed(2)));
 
         $("#resultBtn").text(message);
 
