@@ -1,3 +1,4 @@
+//currency conversion class for handling all currency conversion operations
 class CurrencyConverter {
     currencyFrom: string;
     currencyTo: string;
@@ -13,7 +14,7 @@ class CurrencyConverter {
     CurrencyConverter() {
 
     }
-
+    //sets the currencies
     setCurrencies(currencyFrom: string, currencyTo: string): boolean {
         if (this.checkCurrencies(currencyFrom, currencyTo)){
             this.currencyFrom = currencyFrom;
@@ -24,18 +25,18 @@ class CurrencyConverter {
         }
 
     }
-
+    //does a check to see if the currencies entered are valid
     checkCurrencies(currencyFrom: string, currencyTo: string): boolean{
         var currencyFromValid: boolean;
         var currencyToValid: boolean;
         var currencies: string[] = ["AUD","BGN","BRL", "CAD",
                                     "CHF","CNY","CZK","DKK",
-                                    "GBP","HKD","HRK","HUF",
-                                    "IDR","ILS","INR","JPY",
-                                    "KRW","MXN","MYR","NOK",
-                                    "NZD","PHP","PLN","RON",
-                                    "RUB","SEK","SGD","THB",
-                                    "TRY","USD","ZAR"]; 
+                                    "EUR","GBP","HKD","HRK",
+                                    "HUF","IDR","ILS","INR",
+                                    "JPY","KRW","MXN","MYR",
+                                    "NOK","NZD","PHP","PLN",
+                                    "RON","RUB","SEK","SGD",
+                                    "THB","TRY","USD","ZAR"]; 
         if (currencies.indexOf(currencyFrom) !=-1){
             currencyFromValid = true;
         }else{
@@ -49,12 +50,13 @@ class CurrencyConverter {
 
         return currencyFromValid && currencyToValid
     }
-
+    //sets the amount of currency to be converted
     setAmount(amount: string): void {
         this.currencyAmount = amount;
 
     }
 
+    //Performs asynchronous api call to fixxer, with a dynamic call based on the currencies entered by the user
     getRates(callback): void {
         var settings = {
             async: true,
@@ -70,8 +72,26 @@ class CurrencyConverter {
         });
 
     }
-
+    //performs the conversion calculation
     calculate(data: JSON): void {
+        if(this.currencyFrom == "EUR"){
+            this.currencyFromValue = 1;
+            this.currencyToValue =  Number(data["rates"][this.currencyTo]);
+            this.currencyRatio = this.currencyToValue / this.currencyFromValue;
+            this.finalResult = String(
+                (Number(this.currencyAmount) * this.currencyRatio).toFixed(2));
+            return
+        }
+
+        if(this.currencyTo == "EUR"){
+            this.currencyFromValue = Number(data["rates"][this.currencyFrom]);
+            this.currencyToValue = 1
+            this.currencyRatio = this.currencyToValue / this.currencyFromValue;
+            this.finalResult = String(
+                (Number(this.currencyAmount) * this.currencyRatio).toFixed(2));
+            return
+        }
+
         if (!this.giveError) {
             this.currencyFromValue = Number(data["rates"][this.currencyFrom]);
             this.currencyToValue = Number(data["rates"][this.currencyTo]);
@@ -81,6 +101,8 @@ class CurrencyConverter {
         }
 
     }
+
+    //updates the dom with the result
     returnResult(): void {
         var message: string;
         message = "{0} {1} in {2} is {3}"
@@ -92,6 +114,8 @@ class CurrencyConverter {
         $("#resultBtn").text(message);
 
     }
+
+    //if something is wrong, will update the dom with the error
     failMessage(): void{
        var message: string;
        message = "One or more of the currency Codes is Incorrect"
@@ -100,12 +124,15 @@ class CurrencyConverter {
 
 
 }
-
+//eventlistener function which chains all of the calls and calculations together
 function convertCurrency(): void {
+    //Get the dom elements
     var currencyFrom: string = $("#currencyFrom").val().toUpperCase();
     var currencyTo: string = $("#currencyTo").val().toUpperCase();
     var currencyAmount: string = $("#currencyAmount").val();
+    //create currency converter object
     var currencyConverter = new CurrencyConverter();
+    //performs api calls, if false. then error occured
     var incorrectCurrencies: boolean = currencyConverter.setCurrencies(currencyFrom, currencyTo);
     if (!incorrectCurrencies){
         currencyConverter.failMessage();
@@ -121,7 +148,7 @@ function convertCurrency(): void {
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+//sweet alert messages
 function showCurrencies(): void {
     swal({ 
         title: "Available currency codes:", 

@@ -8,6 +8,7 @@ div#calculateBtn{
     text-align: center;
     height: 80px;
     width: 160px;
+    font-family: Tahoma;
 }
 
 div#result{

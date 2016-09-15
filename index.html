@@ -13,8 +13,9 @@
 </head>
 
 <body class="container-fluid">
-    <!---->
+    <!--Fakeloader Div-->
     <div class="fakeloader"></div>
+    <!--infoheader at top of page-->
     <div class="row infoHeader">
         <div class="col-md-1 col-md-offset-3">
             <div class="btn btn-default btn-md infoBtn center-block" onclick = "showAuthor()">
@@ -30,6 +31,7 @@
         </div>
 
     </div>
+    <!--central app group-->
     <div class="central-group">
         <div id="infoArea">
             <h1 id="websiteName">
@@ -39,6 +41,7 @@
                 Just a simple currency converter
             </h2>
         </div>
+        <!--Input groups-->
         <div class="row">
 
             <div class="col-md-6 col-md-offset-3">
@@ -58,6 +61,7 @@
 
             </div>
         </div>
+        <!--Amount group-->
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <div class="input-group fixer-text input-group-md">
@@ -66,6 +70,7 @@
                 </div>
             </div>
         </div>
+        <!--Functional buttons-->
         <div class="row">
             <div class="col-md-2 col-md-offset-5">
                 <div class="btn btn-default btn-lg outline btn-lg text-center centered center-block" id="calculateBtn" onclick="convertCurrency()">
@@ -83,6 +88,7 @@
             </div>
 
         </div>
+        <!--result output-->
         <div class="row">
             <div class="col-md-2 col-md-offset-5">
                 <div class="panel panel-default">
@@ -100,14 +106,16 @@
 
 
     <!--jQuery Script-->
-    <!--Bootstrap Script-->
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
     <script src="./javascript/jquery.min.js"></script>
+    <!--Bootstrap Script-->
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!--fakeloader Script-->
     <script src="./javascript/fakeLoader.min.js"></script>
-    <!--Custom Script-->
+    <!--sweetalert Script-->
     <script src="./node_modules/sweetalert/dist/sweetalert.min.js"></script>
+    <!--Custom Script-->
     <script src="./currencyConversion/javascript/currencyConversion.js"></script>
+    <!--fakeloader onload Script-->
     <script type="text/javascript">
             $(document).ready(function(){
                 $(".fakeloader").fakeLoader({

@@ -1,11 +1,8 @@
 # Msa-module-1-website
 Webapp for msa 2016 module 1. 
 
-#Soon to be updated
-Todo:
-    Design website
-    Determine requirements
-    Get api'S
+#Description
+This is a simple website that makes use of the fixxer.io web api
 
 #Requirements:
     Basic Requirements
