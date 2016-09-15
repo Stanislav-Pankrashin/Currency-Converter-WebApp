@@ -3,14 +3,16 @@
 
 <head>
 	<title>Placeholder</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<!--Custom CSS-->
-	<script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
-	<link rel="stylesheet" href="node_modules/sweetalert/dist/sweetalert.css">
+	<script src="./node_modules/sweetalert/dist/sweetalert.min.js"></script>
+	<link rel="stylesheet" href="./node_modules/sweetalert/dist/sweetalert.css">
+	<link rel="stylesheet" href="./css/fakeLoader.css">
 </head>
 
 <body>
+	<div class="fakeloader"></div>
 	<div class="container">
 		<div class="row info-row">
 			<div class="col-md-11"></div>
@@ -37,13 +39,8 @@
 								</a>
 							</li>
 							<li>
-								<a class="btn btn-default btn-lg outline btn-lg text-center grid" role="button" href="Timezone Converter">
-						    		<span class = "glyphicon glyphicon-plane"><br>Timezone <br> Conversion
-								</a>
-							</li>
-							<li>
-								<a class="btn btn-default btn-lg outline btn-lg text-center grid" role="button" href="Weather">
-						    		<span class = "glyphicon glyphicon-sunglasses"><br>Weather
+								<a class="btn btn-default btn-lg outline btn-lg text-center grid" role="button" href="unitConversion/unitConversion.html">
+						    		<span class = "glyphicon glyphicon-sunglasses"><br>Unit <br> Conversion
 								</a>
 							</li>
 						</ul>
@@ -55,11 +52,22 @@
 		</div>
 	</div>
 	<!--jQuery Script-->
-	<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+	<!--<script src="./node_modules/jquery/dist/jquery.min.js"></script>
 	<!--Bootstrap Script-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
 	<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<!--Custom Script-->
-	<script src="./js/basic_old.js"></script>
+	<script src="./javascript/fakeLoader.min.js"></script>
+	<script type="text/javascript">
+            $(document).ready(function(){
+                $(".fakeloader").fakeLoader({
+                    timeToHide:3000,
+                    bgColor:"#2ecc71",
+                    spinner:"spinner4"
+                });
+            });
+        
+	</script>
 </body>
 
 </html>
