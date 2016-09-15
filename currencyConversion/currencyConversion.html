@@ -4,15 +4,16 @@
 
 <head>
     <title>Placeholder</title>
+    <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="css/currencyStyle.css">
-    <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <!--Custom CSS-->
-    <script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="../node_modules/sweetalert/dist/sweetalert.css">
+    <link rel="stylesheet" href="../css/fakeLoader.css">
 </head>
 
 <body>
+    <div class = "fakeloader"></div>
     <div class="central-group container-fluid">
         <h1 id="websiteName">
             Currency Conversion
@@ -86,11 +87,24 @@
     </div>
 
     <!--jQuery Script-->
-    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <!--<script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <!--Bootstrap Script-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../javascript/fakeLoader.min.js"></script>
     <!--Custom Script-->
+    <script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>
     <script src="javascript/currencyConversion.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $(".fakeloader").fakeLoader({
+                    timeToHide:3000,
+                    bgColor:"#2ecc71",
+                    spinner:"spinner4"
+                });
+            });
+        
+	</script>
 </body>
 
 </html>

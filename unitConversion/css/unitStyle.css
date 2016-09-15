@@ -1,0 +1,24 @@
+
+.fixer-text{
+    padding: 30px;
+}
+
+div#calculateBtn{
+    text-align: center;
+    height: 60px;
+    width: 160px;
+}
+
+div#result{
+    background : white;
+}
+
+div#resultBtn{
+    text-align: center;
+    height: 60px;
+}
+
+.btn-group{
+    width: 50vw;
+    
+}
