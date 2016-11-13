@@ -147,3 +147,6 @@ function showInfo() {
         confirmButtonText: "Return"
     });
 }
+function showFrom() {
+    document.getElementById("infoDivFrom").style.display = "block";
+}

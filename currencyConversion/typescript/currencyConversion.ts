@@ -179,5 +179,9 @@ function showInfo(): void{
 
     })
 
-    
+}
+
+function showFrom(): void{
+    document.getElementById("infoDivFrom").style.display = "block";
+
 }

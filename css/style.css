@@ -10,6 +10,9 @@ body {
     height: 60px;
     background: #3333ff;
 }
+.infoDivFrom{
+    display: none;
+}
 
 .inline-list li{
     display: inline;
